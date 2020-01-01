@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Tiles/RigidBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/LavaDROP/fire4.png" type="Texture" id=2]
+
+[sub_resource type="CurveTexture" id=1]
+width = 32
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 12.6672
+
+[node name="RigidBody2D" type="RigidBody2D"]
+position = Vector2( -0.528503, -25.9014 )
+mode = 3
+continuous_cd = 2
+script = ExtResource( 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 727.54, -178.947 )
+scale = Vector2( 0.1, 0.1 )
+amount = 1
+lifetime = 1.2
+texture = ExtResource( 2 )
+normalmap = SubResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 2500, 0 )
+gravity = Vector2( 0, 4500 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 729.995, -176.023 )
+shape = SubResource( 2 )

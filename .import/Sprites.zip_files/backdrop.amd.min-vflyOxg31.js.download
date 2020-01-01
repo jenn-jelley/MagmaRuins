@@ -1,0 +1,2 @@
+define(["require","exports","tslib","tslib","classnames","react"],function(e,a,s,r,t,i){"use strict";Object.defineProperty(a,"__esModule",{value:!0}),r=s.__importStar(r),t=s.__importDefault(t),i=s.__importStar(i),a.Backdrop=function(e){var a=e.className,s=e.isVisible,l=r.__rest(e,["className","isVisible"]);return s?i.createElement("div",r.__assign({className:t.default("mc-backdrop",a)},l)):null},a.Backdrop.displayName="Backdrop"});
+//# sourceMappingURL=backdrop.amd.min.js-vflHV39-6.map

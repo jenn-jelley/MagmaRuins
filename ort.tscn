@@ -1,0 +1,59 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://ort_body.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Enemies/Ort/idle/golem_01.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Enemies/Ort/idle/golem_02.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Enemies/Ort/idle/golem_03.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Enemies/Ort/idle/golem_04.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Enemies/Ort/idle/golem_05.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Enemies/Ort/idle/golem_06.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Enemies/Ort/idle/golem_07.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Enemies/Ort/idle/golem_08.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Enemies/Ort/idle/golem_09.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Enemies/Ort/dead/dead00.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Enemies/Ort/dead/dead01.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Enemies/Ort/dead/dead02.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Enemies/Ort/dead/dead03.png" type="Texture" id=14]
+[ext_resource path="res://ort_area.gd" type="Script" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+} ]
+
+[node name="ort_body" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="ort_sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 7.62939e-006, 7.62939e-006 )
+scale = Vector2( 0.315, 0.315 )
+frames = SubResource( 1 )
+animation = "dead"
+frame = 3
+playing = true
+centered = false
+
+[node name="ort_shape" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 32, 160, 12.3568, 129.2, 18.0448, 100.76, 27.7144, 108.723, 52.7417, 76.8705, 65.8241, 81.9897, 96.5393, 86.5401, 110.759, 75.7328, 110.759, 95.0721, 124.979, 105.879, 143.181, 95.0721, 148.869, 151.952, 128.392, 162.759, 112.466, 156.503, 114.172, 137.163, 101.09, 119.53, 96.5393, 129.769, 105.071, 158.209, 61.8425, 158.209, 65.8241, 134.319, 51.0353, 126.925, 47.0537, 142.282, 51.0353, 151.383 )
+
+[node name="ort_ray" type="RayCast2D" parent="."]
+position = Vector2( 58.0293, 129.418 )
+cast_to = Vector2( 0, 36 )
+
+[node name="ort_area" type="Area2D" parent="."]
+position = Vector2( 20.4768, 11.9448 )
+script = ExtResource( 15 )
+
+[node name="ort_area_shape" type="CollisionPolygon2D" parent="ort_area"]
+position = Vector2( -20.4768, -12.2384 )
+polygon = PoolVector2Array( 32, 160, 12.3568, 129.2, 18.0448, 100.76, 27.7144, 108.723, 52.7417, 76.8705, 65.8241, 81.9897, 96.5393, 86.5401, 110.759, 75.7328, 110.759, 95.0721, 124.979, 105.879, 143.181, 95.0721, 148.869, 151.952, 128.392, 162.759, 112.466, 156.503, 114.172, 137.163, 101.09, 119.53, 96.5393, 129.769, 105.071, 158.209, 61.8425, 158.209, 65.8241, 134.319, 51.0353, 126.925, 47.0537, 142.282, 51.0353, 151.383 )
+
+[node name="Timer" type="Timer" parent="."]

@@ -1,0 +1,2 @@
+define(["require","exports","tslib","react","spectrum/mobile_menu/mobile_menu_item"],function(e,t,o,l,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),l=o.__importStar(l),t.MobileMenuCloseButton=function(){return l.createElement(n.MobileMenuItem,{className:"mc-mobile-menu-close-button",shouldCloseMenuOnSelect:!0},"Close")},t.MobileMenuCloseButton.displayName="MobileMenuCloseButton"});
+//# sourceMappingURL=mobile_menu_close_button.amd.min.js-vfl15w_Ux.map
